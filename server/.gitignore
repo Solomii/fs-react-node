@@ -1,0 +1,8 @@
+.*
+!.gitignore
+!.sequelizerc
+
+/node_modules/
+/public/
+/sequelize*.json
+/requests/
