@@ -5,4 +5,7 @@ const httpClient = axios.create({
 });
 
 export const getUsers = ({ limit, offset }) =>
-  httpClient.get('/users?limit=3&offset=20');
+  httpClient.get(`/users?limit=${limit}&offset=${offset}`);
+
+export const postUser = (values) => httpClient.post('/users', values);
+ 

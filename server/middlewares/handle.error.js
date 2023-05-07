@@ -9,7 +9,8 @@ module.exports.handleError = (err, req, res, next) => {
 
     if (err instanceof UniqueConstraintError) {
       err.status = 400;
-      err.message = err.errors[0].message
+    //   err.message = err.errors[0].message
+      err.message = 'User with this email is exists';
     }
 
     const status = err.status || 500;

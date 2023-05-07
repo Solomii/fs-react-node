@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllUsers } from '../../store/usersSlice';
 
 const UsersList = (props) => {
-  const { isFetching, error, users, loadUsers } = useSelector((state)=> state.users)
+  const { isFetching, error, users } = useSelector((state)=> state.users)
   const dispatch = useDispatch();
   useEffect(()=>{
-    dispatch(getAllUsers({res:3}))
+    dispatch(getAllUsers({ limit:10, offset:0 }))
   }, [dispatch])
   return (
     <>
@@ -18,7 +18,7 @@ const UsersList = (props) => {
         <section>
           <ol>
             {users.map((user) => (
-              <li key={user.id}>{JSON.stringify(user)}</li>
+              <li key={user.id}>{user.email}</li>
             ))}
           </ol>
         </section>
