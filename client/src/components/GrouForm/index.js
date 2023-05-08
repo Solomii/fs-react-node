@@ -6,7 +6,7 @@ import { createGroup } from '../../store/groupsSlice';
 const GroupForm = () => {
   const dispatch = useDispatch();
   const onSubmit = (values, formikBag) => {
-    values.userId = 9;
+    values.userId = 7;
     console.log(values);
     dispatch(createGroup(values));
     //formikBag.resetForm();

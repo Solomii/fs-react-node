@@ -1,16 +1,17 @@
-const path = require('path');
+// const path = require('path');
 const { Router } = require('express');
-const multer = require('multer');
+// const multer = require('multer');
 const GroupController = require("../controllers/group.controler")
+const upload = require('../middlewares/upload.mw');
 
-const upload = multer({
-  dest: path.resolve(__dirname, "../public/images")
-})
+// const upload = multer({
+//   dest: path.resolve(__dirname, "../public/images")
+// })
 
 const groupRouter = Router();
 
 // http://localhost:3000/api/groups
-groupRouter.post('/', GroupController.createGroup);
+groupRouter.post('/', upload.single("image"),GroupController.createGroup);
 http://localhost:3000/api/groups/users/7
 groupRouter.get('/users/:idUser', GroupController.getUserGroups);
 // http://localhost:3000/api/groups/2
