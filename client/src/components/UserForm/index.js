@@ -21,7 +21,7 @@ const UserForm = () => {
           email: '',
           password: '',
           birthday: '',
-          isMale: '',
+          isMale: true,
         }}
         onSubmit={onSubmit}
       >
