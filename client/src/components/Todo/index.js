@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 import { addTask, removeTask, setDoneTask } from '../../store/todoSlice';
 
 const Todo = () => {
-  const { tasks } = useSelector((state) => state.todo);
+  const { tasks } = useSelector(state => state.todo);
   const dispatch = useDispatch();
   const onSubmit = (values, formikBag) => {
     if (values.text) {
@@ -12,10 +12,10 @@ const Todo = () => {
       formikBag.resetForm();
     }
   };
-  const handleDone = (id) => {
+  const handleDone = id => {
     dispatch(setDoneTask({ id }));
   };
-  const handleDelete = (id) => {
+  const handleDelete = id => {
     dispatch(removeTask({ id }));
   };
   return (
@@ -23,8 +23,8 @@ const Todo = () => {
       <h2>ADD NEW TASK: </h2>
       <Formik initialValues={{ text: '' }} onSubmit={onSubmit}>
         <Form>
-          <Field name="text" />
-          <input type="submit" value="ADD" />
+          <Field name='text' />
+          <input type='submit' value='ADD' />
         </Form>
       </Formik>
       <h2>Tasks LIST: </h2>
@@ -36,7 +36,7 @@ const Todo = () => {
           }}
         >
           <input
-            type="checkbox"
+            type='checkbox'
             value={isDone}
             checked={isDone}
             onChange={() => handleDone(id)}

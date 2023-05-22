@@ -1,7 +1,7 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up (queryInterface, Sequelize) {
     await queryInterface.createTable('tasks', {
       id: {
         allowNull: false,
@@ -9,34 +9,34 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId:{
-        field:'user_id',
+      userId: {
+        field: 'user_id',
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: 'users',
+            tableName: 'users'
           },
           key: 'id'
         },
-        onDelete:'cascade',
-        onUpdate:"restrict"
+        onDelete: 'cascade',
+        onUpdate: 'restrict'
       },
       content: {
         allowNull: false,
         type: Sequelize.TEXT
       },
       isDone: {
-        field:'is_done',
+        field: 'is_done',
         allowNull: false,
         defaultValue: false,
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.BOOLEAN
       },
       deadline: {
         type: Sequelize.DATE
       },
       createdAt: {
-        field:'created_at',
+        field: 'created_at',
         allowNull: false,
         type: Sequelize.DATE
       },
@@ -47,7 +47,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down (queryInterface, Sequelize) {
     await queryInterface.dropTable('tasks');
   }
 };

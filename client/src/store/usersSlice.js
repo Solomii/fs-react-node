@@ -12,6 +12,11 @@ export const getAllUsers = decorateAsyncThunk({
   thunk: httpClient.getUsers,
 });
 
+export const deleteUser = decorateAsyncThunk({
+  type: 'users/deleteUser',
+  thunk: httpClient.deleteUser,
+});
+
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
@@ -20,16 +25,18 @@ const usersSlice = createSlice({
     users: [],
   },
   reducers: {
-    loadUsers(state, action) {
+    loadUsers (state, action) {
       state.users = action.payload;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder.addCase(getAllUsers.pending, pendingReducer);
     builder.addCase(createUser.pending, pendingReducer);
+    // builder.addCase(deleteUser.pending, pendingReducer);
 
     builder.addCase(getAllUsers.rejected, rejectedReducer);
     builder.addCase(createUser.rejected, rejectedReducer);
+    // builder.addCase(getAllUsers.rejected, rejectedReducer);
 
     builder.addCase(getAllUsers.fulfilled, (state, action) => {
       state.isFetching = false;
@@ -41,7 +48,12 @@ const usersSlice = createSlice({
       state.error = null;
       state.users.unshift(action.payload);
     });
-    
+
+    builder.addCase(deleteUser.fulfilled, (state, action) => {
+      state.isFetching = false;
+      state.error = null;
+      state.users.filter(user => user.id !== action.payload.user.id);
+    });
   },
 });
 

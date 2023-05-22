@@ -7,17 +7,17 @@ const countSlice = createSlice({
     step: 1,
   },
   reducers: {
-    addCount(state, action) {
+    addCount (state, action) {
       state.count += action.payload;
     },
-    subCount(state, action) {
+    subCount (state, action) {
       state.count -= action.payload;
     },
-    setStep(state, action) {
+    setStep (state, action) {
       state.step = action.payload;
-    }
+    },
   },
 });
 
-export const {actions} = countSlice;
+export const { actions } = countSlice;
 export default countSlice.reducer;

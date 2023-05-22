@@ -3,39 +3,39 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('users_to_groups', { 
+    await queryInterface.createTable('users_to_groups', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId:{
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'user_id',
         references: {
           model: {
-            tableName: 'users',
+            tableName: 'users'
           },
           key: 'id'
         },
         onDelete: 'cascade',
         onUpdate: 'cascade'
       },
-      groupId:{
+      groupId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'group_id',
         references: {
           model: {
-            tableName: 'groups',
+            tableName: 'groups'
           },
           key: 'id'
         },
         onDelete: 'cascade',
         onUpdate: 'cascade'
-      } ,
+      },
       createdAt: {
         field: 'created_at',
         allowNull: false,

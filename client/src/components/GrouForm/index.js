@@ -13,18 +13,18 @@ const GroupForm = () => {
   };
   return (
     <Formik initialValues={{ title: '', image: '' }} onSubmit={onSubmit}>
-      {(formikProps) => {
+      {formikProps => {
         return (
-          <Form encType="multipart/form-data">
-            <Field name="title" placeholder="title" />
+          <Form encType='multipart/form-data'>
+            <Field name='title' placeholder='title' />
             <input
-              name="image"
-              type="file"
-              onChange={(event) =>
+              name='image'
+              type='file'
+              onChange={event =>
                 formikProps.setFieldValue('image', event.target.files[0])
               }
             />
-            <input type="submit" value="add new group" />
+            <input type='submit' value='add new group' />
           </Form>
         );
       }}

@@ -7,10 +7,11 @@ const httpClient = axios.create({
 export const getUsers = ({ limit, offset }) =>
   httpClient.get(`/users?limit=${limit}&offset=${offset}`);
 
-export const postUser = (values) => httpClient.post('/users', values);
+export const postUser = values => httpClient.post('/users', values);
 
-export const postGroup = (values) =>
+export const deleteUser = values => httpClient.delete('/delete/', values);
+
+export const postGroup = values =>
   httpClient.post('/groups', values, {
     headers: { 'Content-Type': 'multipart/form-data' },
   });
- 

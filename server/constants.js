@@ -1,3 +1,3 @@
 module.exports = {
-    DB_CONFIG: "db.json",
+  DB_CONFIG: 'db.json'
 };

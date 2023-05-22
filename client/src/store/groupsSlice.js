@@ -15,7 +15,7 @@ const groupsSlice = createSlice({
     groups: [],
   },
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder.addCase(createGroup.pending, pendingReducer);
     builder.addCase(createGroup.rejected, rejectedReducer);
     builder.addCase(createGroup.fulfilled, (state, action) => {

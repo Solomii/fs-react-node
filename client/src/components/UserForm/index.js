@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 import { createUser } from '../../store/usersSlice';
 
 const UserForm = () => {
-  const { isFetching, error } = useSelector((state) => state.users);
+  const { isFetching, error } = useSelector(state => state.users);
   const dispatch = useDispatch();
   const onSubmit = (values, formikBag) => {
     // formikBag.resetForm()
@@ -26,13 +26,13 @@ const UserForm = () => {
         onSubmit={onSubmit}
       >
         <Form>
-          <Field name="firstName" placeholder="first name" />
-          <Field name="lastName" placeholder="last name" />
-          <Field name="email" placeholder="email" />
-          <Field name="password" placeholder="password" />
-          <Field name="birthday" placeholder="birthday" />
-          <Field name="isMale" type="checkbox" />
-          <input type="submit" value="add new user" />
+          <Field name='firstName' placeholder='first name' />
+          <Field name='lastName' placeholder='last name' />
+          <Field name='email' placeholder='email' />
+          <Field name='password' placeholder='password' />
+          <Field name='birthday' placeholder='birthday' />
+          <Field name='isMale' type='checkbox' />
+          <input type='submit' value='add new user' />
         </Form>
       </Formik>
     </>
